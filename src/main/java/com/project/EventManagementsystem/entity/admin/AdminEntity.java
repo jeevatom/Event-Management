@@ -1,6 +1,8 @@
 package com.project.EventManagementsystem.entity.admin;
 import jakarta.persistence.*;
 import lombok.Data;
+import com.project.EventManagementsystem.entity.common.district;
+import com.project.EventManagementsystem.entity.common.state;
 
 @Data
 @Entity
@@ -14,9 +16,13 @@ public class AdminEntity {
 
     int totalTickets;
 
-    int districtId;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "districtId")
+   private district districtId;
 
-    int stateId;
+    @ManyToOne
+    @JoinColumn(referencedColumnName = "stateId")
+    private state state;
 
     String eventName;
 
